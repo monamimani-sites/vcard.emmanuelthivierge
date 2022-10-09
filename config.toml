@@ -1,0 +1,6 @@
+baseURL = 'https://vcard.emmanuelthivierge.com/'
+languageCode = 'en-us'
+title = 'Emmanuel Thivierge'
+
+theme = "lynx"
+
