@@ -1,0 +1,43 @@
+name: CloudFlare-Dev
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  checkout-build-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        lfs: true
+        submodules: true
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
+        extended: true
+
+    - name: Cache hugo modules
+      uses: actions/cache@v2
+      with:
+        path: /tmp/hugo_cache
+        key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-hugomod-
+    - name: Build
+      run: hugo --destination="_build" --minify --cleanDestinationDir
+
+    - name: Publish to Cloudflare Pages
+      uses: cloudflare/pages-action@1
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_AUTH_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        projectName: "vcard-emmanuelthivierge"
+        directory: "_build"
+        branch: "dev"
