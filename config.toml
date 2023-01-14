@@ -1,0 +1,35 @@
+baseURL = 'https://vcard.emmanuelthivierge.com/'
+languageCode = 'en-us'
+title = "Emmanuel Thivierge"
+theme = "lynx"
+
+enableEmoji = true
+disableKinds = ["taxonomy", "term"]
+
+# SEO
+[params]
+  env = "production"
+  title = "Emmanuel Thivierge"
+  description = "Remote C++ Programmer ⁜ Unreal ⁜ Real-Time ⁜ Interactive ⁜ Immersive ⁜ New Media"
+  keywords = [ "Lynx", "Linktree", "About" ]
+  author = "Emmanuel Thivierge"
+
+# Lynx Config
+[author]
+  image = "images/avatar.webp"
+  name = "Emmanuel Thivierge"
+  headline = "Remote C++ Programmer ⁜ Unreal ⁜ Real-Time ⁜ Interactive ⁜ Immersive ⁜ New Media"
+  links = [
+    { linkedin = "https://www.linkedin.com/in/emmanuelthivierge/" },
+    { github = "https://github.com/monamimani" },
+    { link = {href="https://emmanuelthivierge.com", text="Website"}},
+    { email = "mailto:emmanuel.thivierge@gmail.com" }
+  ]
+
+[markup.highlight]
+  noClasses = false
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+  unsafe = true
+

@@ -1,0 +1,4 @@
+[submodule "themes/lynx"]
+	path = themes/lynx
+	url = https://github.com/monamimani-sites/lynx.git
+	branch = dev_vcard_et_site
