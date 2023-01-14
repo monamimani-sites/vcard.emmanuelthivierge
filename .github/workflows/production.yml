@@ -3,7 +3,7 @@ name: CloudFlare-Production
 on:
   workflow_dispatch:
     branches:
-      - dev
+      - production
   push:
     branches:
       - production
@@ -43,3 +43,4 @@ jobs:
         gitHubToken: ${{ secrets.GITHUB_TOKEN }}
         projectName: "vcard-emmanuelthivierge"
         directory: "_build"
+        branch: "main"
