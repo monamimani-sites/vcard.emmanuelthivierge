@@ -1,6 +1,9 @@
 name: CloudFlare-Dev
 
 on:
+  workflow_dispatch:
+    branches:
+      - dev
   push:
     branches:
       - dev
