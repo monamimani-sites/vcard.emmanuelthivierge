@@ -32,6 +32,7 @@ jobs:
         key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
         restore-keys: |
           ${{ runner.os }}-hugomod-
+
     - name: Build
       run: hugo --destination="_build" --minify --cleanDestinationDir
 
